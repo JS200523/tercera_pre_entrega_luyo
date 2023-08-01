@@ -10,9 +10,7 @@
 <body>
     <nav>
         <div>
-            <p>hola</p>
             <ul>
-                <li><a href="{% url 'base' %}">Lista de Libros</a></li>
                 <li><a href="{% url 'lista_libros' %}">Lista de Libros</a></li>
                 <li><a href="{% url 'agregar_libro' %}">Agregar Libro</a></li>
             </ul>
@@ -20,7 +18,6 @@
     </nav>
     <main>
         {% block content %}{% endblock %}
-        <p>alo</p>
     </main>
     <footer>
         <p>Derechos reservados</p>
