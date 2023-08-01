@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Libros{% endblock %}
+
+{% block content %}
+    <h1>Buscar Libros</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="query">Buscar por título, autor o editorial:</label>
+        <input type="text" name="query" required>
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
