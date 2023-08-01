@@ -4,6 +4,28 @@
 
 {% block content %}
     <h1>Buscar Libros</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if query %}
+        <p>Resultados para '{{ query }}':</p>
+        {% for libro in libros %}
+            <h2>{{ libro.titulo }}</h2>
+            <p>{{ libro.autor.nombre }}</p>
+            <p>{{ libro.editorial.nombre }}</p>
+            <p>{{ libro.descripcion }}</p>
+            <p>{{ libro.fecha_publicacion }}</p>
+            <p>{{ libro.precio }}</p>
+        {% empty %}
+            <p>No se encontraron resultados.</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block title %}Buscar Libros{% endblock %}
+
+{% block content %}
+    <h1>Buscar Libros</h1>
     <form method="post">
         {% csrf_token %}
         <label for="query">Buscar por título, autor o editorial:</label>
